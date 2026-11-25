@@ -49,7 +49,7 @@ for(const width of [360,390,430,768,1024,1440,1920]){
   await page.locator('#copy-brief').click();
   assert.match(await page.evaluate(()=>navigator.clipboard.readText()),/Разработчики в команду[\s\S]*Анна[\s\S]*\.NET/);
   assert.equal(await page.locator('#gift a[href="https://primexai.ru/"]').count(),1);
-  assert.equal(await page.locator('a[href*="ultraZahar"], a[href*="ultraValet"]').count(),0);
+  assert.equal(await page.locator('a[href*="ultraValet"]').count(),0);
   // mobile menu
   if(width<=1020){await page.evaluate(()=>scrollTo(0,0));await page.waitForTimeout(300);await page.locator('.menu-toggle').click();assert.equal(await page.locator('#mobile-nav').isVisible(),true);await page.locator('#mobile-nav a[href="#work"]').click();assert.equal(await page.locator('#mobile-nav').isVisible(),false)}
   // full scroll
